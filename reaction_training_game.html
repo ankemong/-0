@@ -969,7 +969,9 @@
             <!-- 广告位 1 - 训练模式下方 -->
             <div class="ad-banner">
                 <div>🎮 广告位 - 游戏外设推荐 🖱️</div>
-                <div style="font-size: 12px; margin-top: 5px;">高精度游戏鼠标 | 机械键盘 | 专业鼠标垫</div>
+                <div style="font-size: 12px; margin-top: 5px;">提升定位精度：
+                    <button class="footer-nav-btn" id="btnRecommendXPro" onclick="showXProInfo()">X‑Pro 推荐</button>
+                </div>
             </div>
 
             <!-- 反应速度训练设置 -->
@@ -2765,6 +2767,23 @@
                     <p>当前版本：v2.1.0 | 更新日期：2024年12月</p>
                 `
             },
+            xpro: {
+                title: '🖱️ X‑Pro 推荐',
+                content: `
+                    <h3>X‑Pro 高精度游戏鼠标</h3>
+                    <p>X‑Pro 提供稳定的定位精度和低延迟传感器，适合追踪与快速点射训练。主要特点：</p>
+                    <ul>
+                        <li>高精度光学传感器（可调 DPI）</li>
+                        <li>低延迟微动开关</li>
+                        <li>人体工学设计与轻量化外壳</li>
+                        <li>可自定义按键与配置保存</li>
+                    </ul>
+                    <p style="margin-top:10px;">购买与更多信息，请访问制造商页面或在本地渠道搜索型号 <strong>X‑Pro</strong>。</p>
+                    <div style="text-align:center; margin-top:12px;">
+                        <button class="btn" onclick="closeInfoModal()">关闭</button>
+                    </div>
+                `
+            },
             contact: {
                 title: '📞 联系我们',
                 content: `
@@ -2906,6 +2925,10 @@
             if (gameState.soundEnabled) {
                 playSound(600, 0.1);
             }
+        }
+
+        function showXProInfo() {
+            showInfoModal('xpro');
         }
         
         // 点击弹窗背景关闭弹窗
@@ -3446,7 +3469,7 @@
         // 广告轮播（非VIP时启用）：简单轮播文案
         let adRotationInterval = null;
         const ads = [
-            {title: '高精度游戏鼠标', detail: '提升定位精度，推荐型号：X-Pro'},
+            {title: '定位精度优化', detail: '提升定位精度，推荐型号：X-Pro', action: 'showXProInfo'},
             {title: '人体工学机械键盘', detail: '长时间训练也更舒适'},
             {title: '专业鼠标垫', detail: '低摩擦/高稳定，提升追踪表现'},
             {title: '训练计划订制', detail: '专家定制训练计划，提高效率'}
