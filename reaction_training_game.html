@@ -934,26 +934,32 @@
         <!-- 开始界面 -->
         <div class="start-screen" id="startScreen">
             <div class="title">🎯 精准点击训练器</div>
-            <div class="subtitle">专业级反应速度和精准度训练平台</div>
+            <div class="subtitle" data-i18n="subtitle">专业级反应速度和精准度训练平台</div>
+            <div style="position: absolute; top: 18px; right: 18px;">
+                <select id="langSelect" onchange="changeLanguage(this.value)">
+                    <option value="zh">中文</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
             
             <!-- 训练模式选择 -->
             <div class="training-mode-selector">
-                <h3 style="color: #00ff88; margin-bottom: 20px;">🎮 选择训练模式</h3>
+                <h3 style="color: #00ff88; margin-bottom: 20px;" data-i18n="choose_mode">🎮 选择训练模式</h3>
                 <div class="mode-cards">
                     <div class="mode-card active" data-mode="reaction">
                         <div class="mode-icon">🎯</div>
-                        <div class="mode-title">反应速度训练</div>
-                        <div class="mode-desc">点击随机目标，提升反应速度和精准度</div>
+                        <div class="mode-title" data-i18n="reaction_mode">反应速度训练</div>
+                        <div class="mode-desc" data-i18n="reaction_desc">点击随机目标，提升反应速度和精准度</div>
                     </div>
                     <div class="mode-card" data-mode="tracking">
                         <div class="mode-icon">🎮</div>
-                        <div class="mode-title">追踪训练</div>
-                        <div class="mode-desc">跟踪移动目标，提升动态反应能力</div>
+                        <div class="mode-title" data-i18n="tracking_mode">追踪训练</div>
+                        <div class="mode-desc" data-i18n="tracking_desc">跟踪移动目标，提升动态反应能力</div>
                     </div>
                     <div class="mode-card" data-mode="schulte">
                         <div class="mode-icon">🧠</div>
-                        <div class="mode-title">舒尔特方格训练</div>
-                        <div class="mode-desc">按顺序点击数字，提升注意力和视觉搜索能力</div>
+                        <div class="mode-title" data-i18n="schulte_mode">舒尔特方格训练</div>
+                        <div class="mode-desc" data-i18n="schulte_desc">按顺序点击数字，提升注意力和视觉搜索能力</div>
                     </div>
                 </div>
             </div>
@@ -3490,6 +3496,66 @@
         });
 
         // --- 结束新增内容 ---
+        // --- i18n 简易实现 ---
+        const i18n = {
+            zh: {
+                subtitle: '专业级反应速度和精准度训练平台',
+                choose_mode: '🎮 选择训练模式',
+                reaction_mode: '反应速度训练',
+                reaction_desc: '点击随机目标，提升反应速度和精准度',
+                tracking_mode: '追踪训练',
+                tracking_desc: '跟踪移动目标，提升动态反应能力',
+                schulte_mode: '舒尔特方格训练',
+                schulte_desc: '按顺序点击数字，提升注意力和视觉搜索能力',
+                training_mode: '训练模式',
+                mode_normal: '普通模式',
+                mode_flick: '快速切换'
+            },
+            en: {
+                subtitle: 'Professional reaction speed & precision trainer',
+                choose_mode: '🎮 Choose training mode',
+                reaction_mode: 'Reaction Speed',
+                reaction_desc: 'Click appearing targets to improve speed and accuracy',
+                tracking_mode: 'Tracking',
+                tracking_desc: 'Follow moving targets to improve dynamic response',
+                schulte_mode: 'Schulte Grid',
+                schulte_desc: 'Click numbers in order to improve attention and visual search',
+                training_mode: 'Training mode',
+                mode_normal: 'Normal',
+                mode_flick: 'Flick'
+            }
+        };
+
+        function getStoredLang() {
+            return localStorage.getItem('i18n_lang') || 'zh';
+        }
+
+        function changeLanguage(lang) {
+            if (!i18n[lang]) return;
+            localStorage.setItem('i18n_lang', lang);
+            translateAll(lang);
+        }
+
+        function t(key) {
+            const lang = getStoredLang();
+            return (i18n[lang] && i18n[lang][key]) || key;
+        }
+
+        function translateAll(lang) {
+            lang = lang || getStoredLang();
+            const sel = document.getElementById('langSelect');
+            if (sel) sel.value = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const text = (i18n[lang] && i18n[lang][key]) || el.textContent;
+                el.textContent = text;
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            translateAll(getStoredLang());
+        });
+        window.addEventListener('load', function() { translateAll(getStoredLang()); });
     </script>
 </body>
 </html>
