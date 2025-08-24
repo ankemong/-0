@@ -976,20 +976,20 @@
                 
                 <div class="difficulty-selector">
                     <div class="difficulty-btn active" data-difficulty="easy">
-                        <div class="difficulty-label">🟢 新手</div>
-                        <div class="difficulty-stats">目标: 60px<br>持续: 2.5s<br>间隔: 800ms</div>
+                        <div class="difficulty-label" data-i18n="easy_label">🟢 新手</div>
+                        <div class="difficulty-stats" data-i18n="easy_stats">目标: 60px<br>持续: 2.5s<br>间隔: 800ms</div>
                     </div>
                     <div class="difficulty-btn" data-difficulty="medium">
-                        <div class="difficulty-label">🟡 进阶</div>
-                        <div class="difficulty-stats">目标: 45px<br>持续: 2.0s<br>间隔: 600ms</div>
+                        <div class="difficulty-label" data-i18n="medium_label">🟡 进阶</div>
+                        <div class="difficulty-stats" data-i18n="medium_stats">目标: 45px<br>持续: 2.0s<br>间隔: 600ms</div>
                     </div>
                     <div class="difficulty-btn" data-difficulty="hard">
-                        <div class="difficulty-label">🟠 困难</div>
-                        <div class="difficulty-stats">目标: 35px<br>持续: 1.5s<br>间隔: 400ms</div>
+                        <div class="difficulty-label" data-i18n="hard_label">🟠 困难</div>
+                        <div class="difficulty-stats" data-i18n="hard_stats">目标: 35px<br>持续: 1.5s<br>间隔: 400ms</div>
                     </div>
                     <div class="difficulty-btn" data-difficulty="expert">
-                        <div class="difficulty-label">🔴 专家</div>
-                        <div class="difficulty-stats">目标: 25px<br>持续: 1.2s<br>间隔: 300ms</div>
+                        <div class="difficulty-label" data-i18n="expert_label">🔴 专家</div>
+                        <div class="difficulty-stats" data-i18n="expert_stats">目标: 25px<br>持续: 1.2s<br>间隔: 300ms</div>
                     </div>
                 </div>
                 
@@ -998,35 +998,35 @@
                 <div class="settings-panel">
                     <div class="settings-grid">
                         <div class="setting-item">
-                            <label>游戏时长</label>
+                            <label data-i18n="label_duration">游戏时长</label>
                             <select id="game-duration">
-                                <option value="30">30秒</option>
-                                <option value="60" selected>60秒</option>
-                                <option value="90">90秒</option>
-                                <option value="120">2分钟</option>
+                                <option value="30" data-i18n="opt_30s">30秒</option>
+                                <option value="60" selected data-i18n="opt_60s">60秒</option>
+                                <option value="90" data-i18n="opt_90s">90秒</option>
+                                <option value="120" data-i18n="opt_2min">2分钟</option>
                             </select>
                         </div>
                         <div class="setting-item">
-                            <label>目标样式</label>
+                            <label data-i18n="label_target_style">目标样式</label>
                             <select id="target-style">
-                                <option value="head" selected>头部形状</option>
-                                <option value="circle">圆形</option>
-                                <option value="square">方形</option>
+                                <option value="head" selected data-i18n="opt_head">头部形状</option>
+                                <option value="circle" data-i18n="opt_circle">圆形</option>
+                                <option value="square" data-i18n="opt_square">方形</option>
                             </select>
                         </div>
                         <div class="setting-item">
-                            <label>音效反馈</label>
+                            <label data-i18n="label_sound">音效反馈</label>
                             <select id="sound-effects">
-                                <option value="on" selected>开启</option>
-                                <option value="off">关闭</option>
+                                <option value="on" selected data-i18n="opt_on">开启</option>
+                                <option value="off" data-i18n="opt_off">关闭</option>
                             </select>
                         </div>
                         <div class="setting-item">
-                            <label>训练模式</label>
+                            <label data-i18n="label_training_mode">训练模式</label>
                             <select id="training-mode">
-                                <option value="normal" selected>普通模式</option>
-                                <option value="flick">快速切换</option>
-                                <option value="tracking">跟踪训练</option>
+                                <option value="normal" selected data-i18n="mode_normal">普通模式</option>
+                                <option value="flick" data-i18n="mode_flick">快速切换</option>
+                                <option value="tracking" data-i18n="mode_tracking">跟踪训练</option>
                             </select>
                         </div>
                     </div>
@@ -3509,7 +3509,29 @@
                 schulte_desc: '按顺序点击数字，提升注意力和视觉搜索能力',
                 training_mode: '训练模式',
                 mode_normal: '普通模式',
-                mode_flick: '快速切换'
+                mode_flick: '快速切换',
+                mode_tracking: '跟踪训练',
+                easy_label: '🟢 新手',
+                easy_stats: '目标: 60px\n持续: 2.5s\n间隔: 800ms',
+                medium_label: '🟡 进阶',
+                medium_stats: '目标: 45px\n持续: 2.0s\n间隔: 600ms',
+                hard_label: '🟠 困难',
+                hard_stats: '目标: 35px\n持续: 1.5s\n间隔: 400ms',
+                expert_label: '🔴 专家',
+                expert_stats: '目标: 25px\n持续: 1.2s\n间隔: 300ms',
+                label_duration: '游戏时长',
+                opt_30s: '30秒',
+                opt_60s: '60秒',
+                opt_90s: '90秒',
+                opt_2min: '2分钟',
+                label_target_style: '目标样式',
+                opt_head: '头部形状',
+                opt_circle: '圆形',
+                opt_square: '方形',
+                label_sound: '音效反馈',
+                opt_on: '开启',
+                opt_off: '关闭',
+                label_training_mode: '训练模式',
             },
             en: {
                 subtitle: 'Professional reaction speed & precision trainer',
@@ -3522,7 +3544,29 @@
                 schulte_desc: 'Click numbers in order to improve attention and visual search',
                 training_mode: 'Training mode',
                 mode_normal: 'Normal',
-                mode_flick: 'Flick'
+                mode_flick: 'Flick',
+                mode_tracking: 'Tracking',
+                easy_label: '🟢 Easy',
+                easy_stats: 'Target: 60px\nDuration: 2.5s\nInterval: 800ms',
+                medium_label: '🟡 Medium',
+                medium_stats: 'Target: 45px\nDuration: 2.0s\nInterval: 600ms',
+                hard_label: '🟠 Hard',
+                hard_stats: 'Target: 35px\nDuration: 1.5s\nInterval: 400ms',
+                expert_label: '🔴 Expert',
+                expert_stats: 'Target: 25px\nDuration: 1.2s\nInterval: 300ms',
+                label_duration: 'Game duration',
+                opt_30s: '30s',
+                opt_60s: '60s',
+                opt_90s: '90s',
+                opt_2min: '2 min',
+                label_target_style: 'Target style',
+                opt_head: 'Head shape',
+                opt_circle: 'Circle',
+                opt_square: 'Square',
+                label_sound: 'Sound effects',
+                opt_on: 'On',
+                opt_off: 'Off',
+                label_training_mode: 'Training mode',
             }
         };
 
