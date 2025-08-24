@@ -1,0 +1,27 @@
+# Node
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# Logs
+logs
+*.log
+
+# Env
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+
+# Database
+*.sqlite
+server/db.json
+
+# IDE
+.vscode/
+.idea/
