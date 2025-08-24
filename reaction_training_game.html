@@ -966,13 +966,7 @@
                 </div>
             </div>
 
-            <!-- 广告位 1 - 训练模式下方 -->
-            <div class="ad-banner">
-                <div>🎮 广告位 - 游戏外设推荐 🖱️</div>
-                <div style="font-size: 12px; margin-top: 5px;">提升定位精度：
-                    <button class="footer-nav-btn" id="btnRecommendXPro" onclick="showXProInfo()">X‑Pro 推荐</button>
-                </div>
-            </div>
+            <!-- 广告位已移除：使用页面 head 中的 AdSense 脚本提供广告 -->
 
             <!-- 反应速度训练设置 -->
             <div class="reaction-settings" id="reactionSettings">
@@ -1228,19 +1222,7 @@
 
     <!-- 账户系统已取消 -->
 
-    <!-- 广告位 2 - 游戏结束后显示 -->
-    <div class="ad-banner large" id="gameEndAd" style="display: none; position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); z-index: 300; max-width: 600px;">
-        <div style="flex-direction: column;">
-            <div style="font-size: 18px; margin-bottom: 10px;">🎮 游戏推荐 - 更多精彩训练</div>
-            <div style="font-size: 14px; opacity: 0.8; line-height: 1.4;">
-                专业电竞训练 | 反应速度提升 | FPS准度训练<br>
-                立即下载，体验更多训练模式！
-            </div>
-            <button style="margin-top: 15px; padding: 8px 20px; background: #00ff88; color: #1a1a1a; border: none; border-radius: 20px; font-weight: bold; cursor: pointer;" onclick="hideGameEndAd()">
-                了解更多
-            </button>
-        </div>
-    </div>
+    <!-- 游戏结束广告位已移除；广告由 head 中的 AdSense 脚本提供 -->
 
     <script>
         let gameState = {
@@ -3088,31 +3070,9 @@
             });
         }
         
-        // 显示游戏结束广告
-        function showGameEndAd() {
-            // 如果不是VIP用户，显示广告
-            if (!vipStatus.isVIP) {
-                const gameEndAd = document.getElementById('gameEndAd');
-                if (gameEndAd) {
-                    gameEndAd.style.display = 'flex';
-                }
-            }
-        }
-        
-        // 隐藏游戏结束广告
-        function hideGameEndAd() {
-            const gameEndAd = document.getElementById('gameEndAd');
-            if (gameEndAd) {
-                gameEndAd.style.display = 'none';
-            }
-        }
-        
-        // 修改showGameOverScreen函数以在游戏结束时显示广告
-        const originalShowGameOverScreen = showGameOverScreen;
-        showGameOverScreen = function() {
-            originalShowGameOverScreen.apply(this, arguments);
-            showGameEndAd();
-        };
+    // 广告位已移除，保留安全的 no-op 接口以防旧代码调用
+    function showGameEndAd() { /* noop: ads provided by AdSense in head */ }
+    function hideGameEndAd() { /* noop */ }
         
     // 专业训练功能已移除：保留空实现以防其他代码调用
     const professionalModeSettings = {};
